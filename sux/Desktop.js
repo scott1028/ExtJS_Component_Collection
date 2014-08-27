@@ -118,16 +118,31 @@ Ext.define("sux.Desktop",{
                 this.refresh();
               }
             }
-       },
-       {
-            region: 'south',
-            height: 40,
-            bbar: [
-                {
-                    xtype: 'button',
-                    text: 'Menu'
-                }
-            ]
        }
+    ],
+    bbar: [
+      {
+          xtype: 'button',
+          text: 'Start',
+          padding: 0,
+          menu: [
+            '<div style="background-color: #157fcc; color: white; text-align: center; height: 30px; line-height: 30px; cursor: auto;">321</div>',
+            {
+              text: 'Program',
+              menu: [
+                {
+                  text: 'MSISDN',
+                  handler: function(){
+                    alert('Open!');
+                  }
+                }
+              ]
+            },
+            {
+              text: 'Logout'
+            },
+          ]
+      },
+      '-'
     ]
 });
