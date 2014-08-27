@@ -131,7 +131,7 @@ Ext.define("sux.Desktop",{
           text: 'Start',
           padding: 0,
           menu: [
-            '<div style="background-color: #157fcc; color: white; text-align: center; height: 30px; line-height: 30px; cursor: auto;">321</div>',
+            '<div style="background-color: #157fcc; color: white; text-align: center; height: 30px; line-height: 30px; cursor: auto;">Menu</div>',
             {
               text: 'Program',
               menu: [
