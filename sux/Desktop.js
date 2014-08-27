@@ -14,8 +14,9 @@ Ext.define("sux.Desktop",{
   // ],
 
   region: 'center',
+  // style: {},
   layout: {
-      type: 'border'
+    type: 'border'
   },
   items: [
      {
@@ -23,8 +24,11 @@ Ext.define("sux.Desktop",{
           xtype: 'dataview',
           padding: 0,
           style: {
-              backgroundColor: 'silver',
-              position: 'relative',
+            backgroundColor: 'silver',
+            position: 'relative',
+            background: 'url(default.jpg)',
+            backgroundSize: '100%',
+            color: '#EEEEEE'
           },
           // get prebuild then set it to here
           store: Ext.create('Ext.data.Store', {
@@ -48,7 +52,7 @@ Ext.define("sux.Desktop",{
                    { src:'http://www.sencha.com/img/20110215-feat-drawing.png', caption:'Drawing & Charts' },
                    { src:'http://www.sencha.com/img/20110215-feat-data.png', caption:'Advanced Data' },
                    { src:'http://www.sencha.com/img/20110215-feat-html5.png', caption:'Overhauled Theme' },
-                   { src:'http://www.sencha.com/img/20110215-feat-perf.png', caption:'Performance Tuned' },
+                   { src:'http://www.sencha.com/img/20110215-feat-perf.png', caption:'Performance Tuned', handler: function(){alert(1)} },
                  ]
           }),
           tpl: null,
@@ -89,9 +93,9 @@ Ext.define("sux.Desktop",{
 
             me.tpl = new Ext.XTemplate(
               '<tpl for=".">',
-                '<div style="cursor: pointer;margin: 25px; width: 75px; height: 75px; left: {[this.left(xindex)]}px; top: {[this.top(xindex)]}px; position: absolute;" class="thumb-wrap">',
-                    '<img src="{src}" style="width: 100%; height: 100%;" />',
-                    '<div style="text-align: center;">{caption}{#}{[xindex]}</div>',
+                '<div onclick="alert(\'Hello World\');" style="cursor: pointer;margin: 25px; width: 75px; height: 75px; left: {[this.left(xindex)]}px; top: {[this.top(xindex)]}px; position: absolute;" class="thumb-wrap">',
+                    '<img src="{src}" style="width: 100%; height: 100%; border-radius: 5px; box-shadow: 2px 3px 4px #333333;" />',
+                    '<div style="text-align: center; font-size: 1.2em; margin-top:5px;">{caption}{#}{[xindex]}</div>',
                   '</div>',
               '</tpl>', {
               left: function(index){
@@ -122,18 +126,22 @@ Ext.define("sux.Desktop",{
   ],
   bbar: {
     xtype: 'toolbar',
+    height: 30,
     style: {
       padding: '2px'
     },
     items: [
       {
+          height: '100%',
           xtype: 'button',
-          text: 'Start',
+          // iconCls: 'home',
+          // iconMask: true,
+          text: '<b style="padding: 0px 20px 0px 20px;">Start</b>',
           padding: 0,
           menu: [
-            '<div style="background-color: #157fcc; color: white; text-align: center; height: 30px; line-height: 30px; cursor: auto;">Menu</div>',
+            '<div style="background-color: #157fcc; color: white; text-align: center; height: 25px; line-height: 25px; cursor: auto;">Menu</div>',
             {
-              text: 'Program',
+              text: 'ProgramA',
               menu: [
                 {
                   text: 'MSISDN',
@@ -142,6 +150,12 @@ Ext.define("sux.Desktop",{
                   }
                 }
               ]
+            },
+            {
+              text: 'ProgramB',
+            },
+            {
+              text: 'ProgramC',
             },
             {
               text: 'Logout'
