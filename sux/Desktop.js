@@ -2,7 +2,7 @@
 // Virtual Desktop
 // Desktop Layout ref: http://css-tricks.com/arranging-elements-top-bottom-instead-left-right-float/
 
-Ext.define("Ext.ux.SDesktop",{
+Ext.define("sux.Desktop",{
     "extend": "Ext.panel.Panel",
     // "controller": "admin-role",
     // "viewModel": {

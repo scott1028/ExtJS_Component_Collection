@@ -2,7 +2,7 @@
 // customize own component
 // DateTimePicker
 // Invoked By RowEditor & Grid Column
-Ext.define('Ext.ux.DateTimePicker', {
+Ext.define('sux.DateTimePicker', {
     extend: 'Ext.form.FieldContainer',
     alias: 'widget.datetimefieldA',
     mixins: {
@@ -92,7 +92,7 @@ Ext.define('Ext.ux.DateTimePicker', {
 
 // Practice Impement my Component by Scott
 // ref: http://docs.sencha.com/extjs/5.0/apidocs/#!/api/Ext.form.field.Picker
-Ext.define('Ext.ux.DateTimePicker', {
+Ext.define('sux.DateTimeField', {
     extend: 'Ext.form.field.Picker',
     alias: 'widget.datetimefieldB',
 
