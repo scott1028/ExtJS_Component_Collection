@@ -176,7 +176,38 @@ Ext.define("sux.Desktop",{
             },
           ]
       },
-      '-'
+      '-',
+      {
+        xtype: 'container',
+        layout: {
+          type: 'hbox',
+          align: 'stretch'
+        },
+        style: {
+          paddingLeft: '5px'
+        },
+        items: (function(){
+          var list = [];
+          for(var i=0; i<7; i++){
+            list.push({
+              xtype: 'button',
+              minWidth: 100,
+              text: 100 + i,
+              height: 25,
+              style: {
+                marginRight: '2px'
+              }
+            });
+          }
+          return list;
+        })()
+      },
+      '->',
+      {
+        width: 130,
+        xtype: 'button',
+        text: '2014-08-08 00:00:00'
+      }
     ]
   }
 });
