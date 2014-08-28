@@ -26,8 +26,8 @@ Ext.define("sux.Desktop",{
           style: {
             backgroundColor: 'silver',
             position: 'relative',
-            background: 'url(default.jpg)',
-            backgroundSize: '100%',
+            background: 'url(assets/default.jpg)',
+            backgroundSize: '100% 100%',
             color: '#EEEEEE'
           },
           // get prebuild then set it to here
@@ -41,6 +41,17 @@ Ext.define("sux.Desktop",{
                    ]
                  }),
                  data: [
+                   { src:'/assets/chrome.png', caption:'Chrome', handler: function(){
+                       Ext.create({
+                        xtype: 'window',
+                        title: 'Brower',
+                        width: 400,
+                        height: 300,
+                        constrain: true,
+                        html: '<h1>Hello World</h1>'
+                       }).show();
+                     }
+                   },
                    { src:'http://www.sencha.com/img/20110215-feat-drawing.png', caption:'Drawing & Charts' },
                    { src:'http://www.sencha.com/img/20110215-feat-data.png', caption:'Advanced Data' },
                    { src:'http://www.sencha.com/img/20110215-feat-html5.png', caption:'Overhauled Theme' },
@@ -52,7 +63,6 @@ Ext.define("sux.Desktop",{
                    { src:'http://www.sencha.com/img/20110215-feat-drawing.png', caption:'Drawing & Charts' },
                    { src:'http://www.sencha.com/img/20110215-feat-data.png', caption:'Advanced Data' },
                    { src:'http://www.sencha.com/img/20110215-feat-html5.png', caption:'Overhauled Theme' },
-                   { src:'http://www.sencha.com/img/20110215-feat-perf.png', caption:'Performance Tuned', handler: function(){alert(1)} },
                  ]
           }),
           tpl: null,
@@ -93,9 +103,9 @@ Ext.define("sux.Desktop",{
 
             me.tpl = new Ext.XTemplate(
               '<tpl for=".">',
-                '<div onclick="alert(\'Hello World\');" style="cursor: pointer;margin: 25px; width: 75px; height: 75px; left: {[this.left(xindex)]}px; top: {[this.top(xindex)]}px; position: absolute;" class="thumb-wrap">',
-                    '<img src="{src}" style="width: 100%; height: 100%; border-radius: 5px; box-shadow: 2px 3px 4px #333333;" />',
-                    '<div style="text-align: center; font-size: 1.2em; margin-top:5px;">{caption}{#}{[xindex]}</div>',
+                '<div style="cursor: pointer;margin: 25px; width: 75px; height: 75px; left: {[this.left(xindex)]}px; top: {[this.top(xindex)]}px; position: absolute;" class="thumb-wrap">',
+                    '<img src="{src}" style="width: 100%; height: 100%; border-radius: 5px;" />',
+                    '<div style="text-align: center; font-size: 1.2em; margin-top:5px;">{caption}</div>',
                   '</div>',
               '</tpl>', {
               left: function(index){
@@ -120,6 +130,10 @@ Ext.define("sux.Desktop",{
             resize: function(){
               this.setAlignIcon();
               this.refresh();
+            },
+            // Item Click
+            itemclick: function(self, record, item, index, e, eOpts){
+              if(record.get('handler')) record.get('handler')();
             }
           }
      }
